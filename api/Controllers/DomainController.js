@@ -3,7 +3,7 @@ const domainModel = require('../Models/DomainModel');
 
 exports.create = (req, res, next) => {
     const domain =  new domainModel({
-        _id = mongoose.Types.ObjectId(),
+        _id: mongoose.Types.ObjectId(),
         company_id: req.body.company_id,
         domain_name: req.body.domain_name,
         form_leads: req.body.form_leads,
@@ -23,5 +23,14 @@ exports.create = (req, res, next) => {
             error:true,
             result:err
         })
+    })
+}
+
+exports.show = (req, res, next)=>{
+    return domainModel.find().exec().
+    then(result=>{
+        return res.status(200).json(result)
+    }).catch(err => {
+        return res.status(500).json(err)
     })
 }

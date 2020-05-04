@@ -5,7 +5,8 @@ const router = express.Router();
 const DomainController = require('../Controllers/DomainController')
 
 //Routers Defined
-router.get('/insertEnquiry', DomainController.create)
+router.post('/create', DomainController.create)
+router.get('/', DomainController.show)
 
 //Export Router
 module.exports = router;
