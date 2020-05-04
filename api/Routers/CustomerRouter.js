@@ -1,11 +1,12 @@
 const express = require('express')
-const Router = express.Router();
+const router = express.Router();
 
 //Controller Import
 const CustomerController = require('../Controllers/CustomerController')
 
 //Routers Defined
-Router.get('/createEnquiry', CustomerController.createEnquiry)
+router.post('/create', CustomerController.create)
+router.get('/', CustomerController.show)
 
 //Export Router
-exports.module = Router;
+module.exports = router;

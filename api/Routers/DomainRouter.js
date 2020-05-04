@@ -1,11 +1,11 @@
 const express = require('express')
-const Router = express.Router();
+const router = express.Router();
 
 //Controller Import
 const DomainController = require('../Controllers/DomainController')
 
 //Routers Defined
-Router.get('/insertEnquiry', DomainController.insertEnquiry)
+router.get('/insertEnquiry', DomainController.create)
 
 //Export Router
-exports.module = Router;
+module.exports = router;

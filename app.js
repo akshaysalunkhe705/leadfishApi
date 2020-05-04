@@ -6,8 +6,10 @@ const mongoose = require('mongoose');
 
 // ///////////////////////////////Import Router
 const LeadRouter = require('./api/Routers/LeadRouter');
+const CustomerRouter = require('./api/Routers/CustomerRouter');
+const DomainRouter = require('./api/Routers/DomainRouter');
 
-mongoose.connect('mongodb://127.0.0.1/enquiry',{ useNewUrlParser:true, useUnifiedTopology:true }).then(() => {
+mongoose.connect('mongodb://127.0.0.1/leadfish',{ useNewUrlParser:true, useUnifiedTopology:true }).then(() => {
     console.log("Connected to Database");
 }).catch((err) => {
     console.log("Not Connected to Database ERROR! ", err);
@@ -30,6 +32,8 @@ app.use((req, res, next) => {
 
 // ////////////////////////////////// Routers
 app.use('/LeadRouter', LeadRouter);
+app.use('/CustomerRouter', CustomerRouter);
+app.use('/DomainRouter', DomainRouter);
 
 //////////////////////////////////// Error Handlings
 app.use((req, res, next) => {

@@ -13,4 +13,26 @@ exports.create = (req, res, next) => {
         password: req.body.password,
         other_details: req.body.other_details,
     })
+    customer.save()
+    .then(result => {
+        return res.status(201).json({
+            error:false,
+            result:result
+        })
+    })
+    .catch(err => {
+        return res.status(500).json({
+            error:true,
+            result:err
+        })
+    })
+}
+
+exports.show = (req, res, next)=>{
+    return customerModel.find().exec().
+    then(result=>{
+        return res.status(200).json(result)
+    }).catch(err => {
+        return res.status(500).json(err)
+    })
 }
