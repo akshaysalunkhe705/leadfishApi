@@ -1,24 +1,30 @@
 const mongoose = require('mongoose');
-const enquiryModel = require('../Models/enquiryModel');
+const leadModel = require('../Models/LeadModel');
 
-exports.createEnquiry = (req, res, next) => {
-    const enquiry = new enquiryModel({
+exports.create = (req, res, next) => {
+    const lead = new leadModel({
         _id: mongoose.Types.ObjectId(),
         domain_name: req.body.domain_name,
         form_name: req.body.form_name,
         enquiry: req.body
     })
-    enquiry.save()
-        .then(result => {
-            console.log(result)
+    lead.save()
+    .then(result => {
+        return res.status(201).json({
+            error:false,
+            result:result
         })
-        .catch(err => {
-            console.log(err)
-        });
+    })
+    .catch(err => {
+        return res.status(500).json({
+            error:true,
+            result:err
+        })
+    })
 };
 
-exports.showEnquiry = (req, res, next) => {
-    return enquiryModel.find().exec().
+exports.show = (req, res, next) => {
+    return leadModel.find().exec().
     then(result=>{
         return res.status(200).json(result)
     }).catch(err => {

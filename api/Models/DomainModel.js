@@ -6,7 +6,7 @@ const domainModel = mongoose.Schema({
     domain_name: { Types:String, require:true },
     form_leads: { Types:Boolean, require:true },
     chatbot_leads: { Types:Boolean, require:true },
-    date_of_register: { Types:Boolean, require:true },
+    date_of_register: { Types:String, require:true },
     timestamp: { type: Date, default: Date.now }
 })
 

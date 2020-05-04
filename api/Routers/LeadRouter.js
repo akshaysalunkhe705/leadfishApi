@@ -2,12 +2,11 @@ const express = require('express')
 const router = express.Router();
 
 //Controller Import
-const websiteEnquiryController = require('../Controllers/LeadController')
+const LeadController = require('../Controllers/LeadController')
 
 //Routers Defined
-router.get('/', websiteEnquiryController.showEnquiry)
-
-router.post('/createEnquiry', websiteEnquiryController.createEnquiry)
+router.post('/createEnquiry', LeadController.create)
+router.get('/', LeadController.show)
 
 //Export Router
 module.exports = router;

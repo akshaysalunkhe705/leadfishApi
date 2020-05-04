@@ -2,10 +2,10 @@ const express = require('express')
 const Router = express.Router();
 
 //Controller Import
-const portalEnquiryController = require('../Controllers/portalEnquiryController')
+const DomainController = require('../Controllers/DomainController')
 
 //Routers Defined
-Router.get('/insertEnquiry', portalEnquiryController.insertEnquiry)
+Router.get('/insertEnquiry', DomainController.insertEnquiry)
 
 //Export Router
 exports.module = Router;
