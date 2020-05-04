@@ -2,10 +2,10 @@ const express = require('express')
 const Router = express.Router();
 
 //Controller Import
-const emailEnquiryController = require('../Controllers/emailEnquiryController')
+const CompanyController = require('../Controllers/CustomerController')
 
 //Routers Defined
-Router.get('/insertEnquiry', emailEnquiryController.insertEnquiry)
+Router.get('/insertEnquiry', CompanyController.insertCustomer)
 
 //Export Router
 exports.module = Router;

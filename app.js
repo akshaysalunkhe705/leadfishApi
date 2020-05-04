@@ -5,10 +5,7 @@ const bodyParse = require('body-parser');
 const mongoose = require('mongoose');
 
 // ///////////////////////////////Import Router
-const websiteEnquiryRouter = require('./api/Routers/websiteEnquiryRouter');
-// const portalEnquiryRouter = require('./api/Routers/portalEnquiryRouter');
-// const sellerOnlineEnquiryRouter = require('./api/Routers/sellerOnlineEnquiryRouter');
-// const emailEnquiryRouter = require('./api/Routers/emailEnquiryRouter');
+const websiteEnquiryRouter = require('./api/Routers/LeadRouter');
 
 mongoose.connect('mongodb://127.0.0.1/enquiry',{ useNewUrlParser:true, useUnifiedTopology:true }).then(() => {
     console.log("Connected to Database");
@@ -33,9 +30,6 @@ app.use((req, res, next) => {
 
 // ////////////////////////////////// Routers
 app.use('/websiteEnquiryRouter', websiteEnquiryRouter);
-// app.use('/portalEnquiryRouter', portalEnquiryRouter);
-// app.use('/sellerOnlineEnquiryRouter', sellerOnlineEnquiryRouter);
-// app.use('/emailEnquiryRouter', emailEnquiryRouter);
 
 //////////////////////////////////// Error Handlings
 app.use((req, res, next) => {

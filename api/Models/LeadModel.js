@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 
-const enquirySchema = mongoose.Schema({
+const leadSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
+    lead_type: { type: String }, // lead came from (FORM, CHATBOT, APP)
     domain_name: { type: String },
     form_name: { type: String },
     form_id: { type: Number },
@@ -9,4 +10,4 @@ const enquirySchema = mongoose.Schema({
     timestamp: { type: Date, default: Date.now }
 })
 
-module.exports = mongoose.model('enquiries', enquirySchema);
+module.exports = mongoose.model('lead', leadSchema);
