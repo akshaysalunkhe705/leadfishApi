@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const domainModel = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    company_id: { type:String, require:true },
+    company_id: mongoose.Schema.Types.ObjectId,
     domain_name: { type:String, require:true },
     form_leads: { type:String, require:true },
     chatbot_leads: { type:String, require:true },
