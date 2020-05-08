@@ -36,3 +36,15 @@ exports.show = (req, res, next)=>{
         return res.status(500).json(err)
     })
 }
+
+exports.detailed = (req, res, next)=>{
+    const id = req.params.id
+    return customerModel.find({
+        _id:id
+    }).exec().
+    then(result=>{
+        return res.status(200).json(result)
+    }).catch(err => {
+        return res.status(500).json(err)
+    })
+}

@@ -4,8 +4,8 @@ const leadModel = require('../Models/LeadModel');
 exports.create = (req, res, next) => {
     const lead = new leadModel({
         _id: mongoose.Types.ObjectId(),
-        domain_name: req.body.domain_name,
-        form_name: req.body.form_name,
+        domain_id: req.body.domain_id,
+        customer_id: req.body.customer_id,
         enquiry: req.body
     })
     lead.save()

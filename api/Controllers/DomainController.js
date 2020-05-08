@@ -34,3 +34,29 @@ exports.show = (req, res, next)=>{
         return res.status(500).json(err)
     })
 }
+
+exports.detailed = (req, res, next) => {
+    const id = req.params.id
+    return domainModel.find({
+        _id:id
+    })
+    .exec().
+    then(result=>{
+        return res.status(200).json(result)
+    }).catch(err => {
+        return res.status(500).json(err)
+    })
+}
+
+exports.company_domains = (req, res, next) => {
+    const company_id = req.params.company_id
+    return domainModel.find({
+        company_id:company_id
+    })
+    .exec().
+    then(result=>{
+        return res.status(200).json(result)
+    }).catch(err => {
+        return res.status(500).json(err)
+    })
+}

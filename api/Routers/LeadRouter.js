@@ -5,7 +5,7 @@ const router = express.Router();
 const LeadController = require('../Controllers/LeadController')
 
 //Routers Defined
-router.post('/createEnquiry', LeadController.create)
+router.post('/create', LeadController.create)
 router.get('/', LeadController.show)
 
 //Export Router
